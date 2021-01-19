@@ -51,15 +51,15 @@
                   @foreach($usuario as $item)
                   <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $item->nombre }}</td>
+                    <td>{{ $item->name }}</td>
                     <td>{{ $item->nombre_completo }}</td>
                     <td>{{ $item->password }}</td>
-                    <td>{{ $item->avatar }}</td>
+                    <td> <img style="height: 100px;" src="{{asset(Storage::url($item->avatar)) }}" alt=""> </td>
                     <td>{{ $item->usu_verificado }}</td>
                     <td>{{ $item->tipo }}</td>
                     <td>{{ $item->direccion }}</td>
                     <td>{{ $item->localidad }}</td>
-                    <td>{{ $item->mail }}</td>
+                    <td>{{ $item->email }}</td>
                     <td>{{ $item->telefono }}</td>
                     <td>
                       <div class="float-right">

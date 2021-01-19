@@ -58,7 +58,7 @@
     ],
     "validations": [
         {
-            "field": "nombre",
+            "field": "name",
             "rules": "required|max:60"
         },
         {
@@ -78,7 +78,7 @@
             "rules": "required"
         },
         {
-            "field": "mail",
+            "field": "email",
             "rules": "required"
         },
         {

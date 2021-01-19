@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,26 +33,26 @@ Route::get('msgError', function () {
 Route::get('/ingreso', 'App\Http\Controllers\loginController@login')
     ->name("padron.ingreso");
 
-Route::get('/cerrarSession', 'loginController@logout');
+Route::get('/cerrarSession', 'App\Http\Controllers\loginController@logout');
 
-Route::post('/validaUsuario', 'loginController@validaUsuario')
+Route::post('/validaUsuario', 'App\Http\Controllers\loginController@validaUsuario')
     ->name("padron.validaUsuario");
 
 
 /*Todos*/
-Route::group(['middleware' => "valPermisos:1_2_3"], function () {
+Route::group(['middleware' => "App\Http\Middleware\\valPermisos:1_2_3"], function () {
     /*Rutas para todos**/
-    Route::get('/inicio', 'loginController@inicio')
+    Route::get('/inicio', 'App\Http\Controllers\loginController@inicio')
         ->name("padron.inicio");
     /* actualizacion de usuario **/
-    Route::get('/configUsu', 'loginController@configUsu')
+    Route::get('/configUsu', 'App\Http\Controllers\loginController@configUsu')
         ->name("padron.configUsu");
-    Route::post('/actualizaUsuario', 'loginController@actualizaUsuario')
+    Route::post('/actualizaUsuario', 'App\Http\Controllers\loginController@actualizaUsuario')
         ->name("padron.actualizaUsuario");
 });
 
 /* solo admin */
-Route::group(['middleware' => "valPermisos:1"], function () {
+Route::group(['middleware' => "App\Http\Middleware\\valPermisos:1"], function () {
     /*registro de nuevos usuarios**/
-    Route::resource('usuario', 'UsuarioController');
+    Route::resource('usuario', 'App\Http\Controllers\UsuarioController');
 });

@@ -62,12 +62,12 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-			'nombre' => 'required|max:60',
+			'name' => 'required|max:60',
 			'nombre_completo' => 'required|max:60',
 			'password' => 'required',
 			'tipo' => 'required',
 			'direccion' => 'required',
-			'mail' => 'required',
+			'email' => 'required',
 			'localidad' => 'required',
 			'telefono' => 'required',
 			'observacion' => 'required'
@@ -122,12 +122,12 @@ class UsuarioController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-			'nombre' => 'required|max:60',
+			'name' => 'required|max:60',
 			'nombre_completo' => 'required|max:60',
 			'password' => 'required',
 			'tipo' => 'required',
 			'direccion' => 'required',
-			'mail' => 'required',
+			'email' => 'required',
 			'localidad' => 'required',
 			'telefono' => 'required',
 			'observacion' => 'required'

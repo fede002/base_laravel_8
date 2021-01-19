@@ -32,7 +32,7 @@ class loginController extends Controller
 
       //TODO: implementar
       //$srv = \App\Servicios\srvMedico::valUsuario($usu, $pass);
-      $usuario = \App\Models\Usuario::where('nombre', '=', $usu)
+      $usuario = \App\Models\Usuario::where('name', '=', $usu)
         ->where('password', '=', $pass)
         ->get()->first();
     }
@@ -62,12 +62,12 @@ class loginController extends Controller
   {
     $usuario = Session::get("usuario");
     $this->validate($rq, [
-      'nombre' => 'required|max:60',
+      'name' => 'required|max:60',
       'nombre_completo' => 'required|max:60',
       'password' => 'required',
       'confirme_su_password' => 'required|same:password',
       'direccion' => 'required',
-      'mail' => 'required',
+      'email' => 'required',
       'localidad' => 'required',
       'telefono' => 'required',
       'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024'

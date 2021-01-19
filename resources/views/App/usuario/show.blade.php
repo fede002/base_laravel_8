@@ -29,7 +29,7 @@
                   </tr>
                   <tr>
                     <th> Nombre </th>
-                    <td> {{ $usuario->nombre }} </td>
+                    <td> {{ $usuario->name }} </td>
                   </tr>
                   <tr>
                     <th> Nombre Completo </th>
@@ -41,7 +41,7 @@
                   </tr>
                   <tr>
                     <th> Avatar </th>
-                    <td> {{ $usuario->avatar }} </td>
+                    <td> <img src="{{asset(Storage::url($item->avatar)) }}" alt=""> </td>
                   </tr>
                   <tr>
                     <th> Usu Verificado </th>
@@ -61,7 +61,7 @@
                   </tr>
                   <tr>
                     <th> Mail </th>
-                    <td> {{ $usuario->mail }} </td>
+                    <td> {{ $usuario->email }} </td>
                   </tr>
                   <tr>
                     <th> Telefono </th>

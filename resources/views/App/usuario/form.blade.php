@@ -1,10 +1,10 @@
 <div class="row">
 
   <div class="col-md-3">
-    <div class="form-group  {{ $errors->has('nombre') ? 'has-error' : ''}}">
-      <label for="nombre" class="control-label">{{ 'Nombre' }}</label>
-      <input class="form-control" name="nombre" type="text" id="nombre" value="{{ isset($usuario->nombre) ? $usuario->nombre : ''}}" required>
-      {!! $errors->first('nombre', '<p class="help-block">:message</p>') !!}
+    <div class="form-group  {{ $errors->has('name') ? 'has-error' : ''}}">
+      <label for="name" class="control-label">{{ 'Nombre' }}</label>
+      <input class="form-control" name="name" type="text" id="name" value="{{ isset($usuario->name) ? $usuario->name : ''}}" required>
+      {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
     </div>
   </div>
 
@@ -65,10 +65,10 @@
   </div>
 
   <div class="col-md-3">
-    <div class="form-group  {{ $errors->has('mail') ? 'has-error' : ''}}">
-      <label for="mail" class="control-label">{{ 'Mail' }}</label>
-      <input class="form-control" name="mail" type="text" id="mail" value="{{ isset($usuario->mail) ? $usuario->mail : ''}}" required>
-      {!! $errors->first('mail', '<p class="help-block">:message</p>') !!}
+    <div class="form-group  {{ $errors->has('email') ? 'has-error' : ''}}">
+      <label for="email" class="control-label">{{ 'Mail' }}</label>
+      <input class="form-control" name="email" type="text" id="email" value="{{ isset($usuario->email) ? $usuario->email : ''}}" required>
+      {!! $errors->first('email', '<p class="help-block">:message</p>') !!}
     </div>
   </div>
 
