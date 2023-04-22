@@ -1,0 +1,37 @@
+# Imagen base de Docker para PHP y Apache
+FROM php:8.0-apache
+
+# Copiar los archivos del proyecto Laravel al contenedor
+COPY . /var/www/html/
+
+# Instalar las dependencias necesarias para Laravel
+RUN apt-get update && \
+    apt-get install -y \
+        libzip-dev \
+        unzip \
+        libfreetype6-dev \
+        libjpeg62-turbo-dev \
+        libpng-dev \
+        libwebp-dev \
+        libxpm-dev \
+        && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp --with-xpm \
+        && docker-php-ext-install zip pdo_mysql  -j$(nproc) gd && \
+    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+    # Configurar el servidor Apache para usar el directorio public como la raíz del servidor
+RUN sed -i -e 's/html$/html\/public/g' /etc/apache2/sites-available/000-default.conf && \
+    a2enmod rewrite
+
+# Configurar los permisos de almacenamiento en caché y registro
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chmod -R 777 /var/www/html/storage /var/www/html/bootstrap/cache
+
+
+# Configurar el directorio de trabajo
+WORKDIR /var/www/html
+
+# Exponer el puerto 80
+EXPOSE 80
+
+# Definir el comando de inicio para el contenedor
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
