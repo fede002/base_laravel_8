@@ -22,6 +22,14 @@ Route::get('/', function () {
 Route::get('ejem/demo', function () {
     return view('ejem/demo');
 });
+Route::get('ejem/phpinfo', function () {
+    phpinfo();
+    exit;
+});
+Route::get('ejem/xdebuginfo', function () {
+    xdebug_info();
+    exit;
+});
 Route::get('ejem/iconos', function () {
     return view('ejem/iconos');
 });
